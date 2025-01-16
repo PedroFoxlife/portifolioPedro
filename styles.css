@@ -1,0 +1,479 @@
+/* ========================== */
+/* Configurações Gerais       */
+/* ========================== */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #0f0f0f;
+    color: #ffffff;
+    overflow: hidden;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ========================== */
+  /* Seção Hero (Página Inicial)*/
+  /* ========================== */
+  .hero {
+   
+    position: relative; 
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  
+  .image-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #9c3bff;
+    animation: pulse 3s infinite ease-in-out;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    animation: fadeInUp 2s ease-in-out;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 2.5s ease-in-out;
+  }
+  
+  /* Botões */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .hero-btn {
+    padding: 10px 20px;
+    background: #86c0ff;
+    color: #0f0f0f;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .hero-btn:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+  }
+  
+  .hero-btn.outline {
+    background: transparent;
+    color: #86c0ff;
+    border: 2px solid #86c0ff;
+  }
+  
+  .hero-btn.outline:hover {
+    background: #86c0ff;
+    color: #ffffff;
+  }
+  
+  /* ========================== */
+  /* Fundo 3D                  */
+  /* ========================== */
+  #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  /* ========================== */
+  /* Animações                 */
+  /* ========================== */
+  /* Fade In */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Pulse */
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px #9c3bff, 0 0 40px rgb(187, 9, 222);
+    }
+    50% {
+      box-shadow: 0 0 10px #9c3bff, 0 0 20px rgb(187, 9, 222);
+    }
+  }
+  
+  /* Fade Out */
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+  }
+  
+  .exit-animation {
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  /* Fade In */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .entry-animation {
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  /* ========================== */
+  /* Efeitos de Digitação       */
+  /* ========================== */
+  .animated-text {
+    display: inline-block;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #86c0ff;
+    animation: typing 4s steps(30, end), blink 0.7s infinite;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    from {
+      border-right-color: #86c0ff;
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+  
+  /* ========================== */
+  /* Controle de Visibilidade   */
+  /* ========================== */
+  .hidden {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+/* ========================== */
+/* Seção Projeto Destaque     */
+/* ========================== */
+.project-highlight {
+  
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  padding: 20px;
+  background: linear-gradient(135deg, #9c3bff, #86c0ff);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Partículas no fundo */
+.project-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/particles.png') repeat;
+  opacity: 0.2;
+  z-index: -1;
+  animation: moveParticles 10s linear infinite;
+}
+
+/* Conteúdo da seção */
+.project-highlight .highlight-content {
+  max-width: 500px;
+}
+
+.project-highlight h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 1.5s ease-in-out;
+}
+
+.project-highlight p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Imagem destacada */
+.project-highlight img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 1.5s ease-in-out;
+}
+
+/* Botões */
+.project-highlight .highlight-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.project-highlight .highlight-btn {
+  padding: 12px 25px;
+  background: #ffffff;
+  color: #9c3bff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.project-highlight .highlight-btn:hover {
+  background: #9c3bff;
+  color: #ffffff;
+  transform: translateY(-5px);
+}
+
+/* Animações */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes moveParticles {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+/* ========================== */
+/* Seção Projeto Destaque     */
+/* ========================== */
+.project-highlight {
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  padding: 20px;
+  background: linear-gradient(135deg, #9c3bff, #86c0ff);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Garantir que o conteúdo tenha z-index adequado */
+}
+
+.project-highlight .highlight-content {
+  max-width: 500px;
+  position: relative;
+  z-index: 2; /* Elementos dentro da área de destaque */
+}
+
+.project-highlight h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 1.5s ease-in-out;
+}
+
+.project-highlight p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.project-highlight img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 1.5s ease-in-out;
+  z-index: 1; /* Garantir que a imagem não cubra os botões */
+}
+
+.project-highlight .highlight-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  z-index: 3; /* Botões acima dos outros elementos */
+  position: relative; /* Para garantir que fiquem interativos */
+}
+
+.project-highlight .highlight-btn {
+  padding: 12px 25px;
+  background: #ffffff;
+  color: #9c3bff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.project-highlight .highlight-btn:hover {
+  background: #9c3bff;
+  color: #ffffff;
+  transform: translateY(-5px);
+}
+
+
+/* ========================== */
+/* Responsividade            */
+/* ========================== */
+@media (max-width: 768px) {
+  /* Seção Hero */
+  .hero-content {
+    padding: 0 10px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Botões */
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .project-highlight {
+    flex-direction: column;
+    text-align: center;
+    height: auto; /* Ajusta a altura para dispositivos móveis */
+    padding: 40px 10px;
+  }
+
+  .project-highlight img {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .project-highlight h2 {
+    font-size: 2rem;
+  }
+
+  .project-highlight p {
+    font-size: 1rem;
+  }
+
+  .highlight-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+

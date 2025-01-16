@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Pedro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="content">
+    <!-- Seção Inicial -->
+    <section id="home" class="hero active">
+      <div class="hero-content">
+        <div class="image-container">
+          <img src="./assets/img/PedroPNG.png" alt="Minha Foto" class="profile-image">
+        </div>
+        <h1 class="hero-title">
+          <span class="animated-text" data-text="Olá, Eu Sou Pedro Henrique"></span>
+        </h1>
+        <p class="hero-subtitle">
+          <span class="animated-text2" data-text="Desenvolvedor Front-End e Criador de Experiências Visuais."></span>
+        </p>
+        <div class="buttons">
+          <button id="meusProjetos" class="hero-btn">Projeto Destaque</button>
+          <a href="#contact" class="hero-btn outline">Curriculo</a>
+        </div>
+      </div>
+      <div id="background"></div>
+    </section>
+
+    <section id="project-highlight" class="project-highlight">
+      <div class="highlight-content">
+        <h2>Projeto Destaque: Site ADTAG Setor O</h2>
+        <p>
+          Um projeto incrível desenvolvido com as melhores tecnologias, trazendo uma experiência única para o usuário. Explore animações dinâmicas, responsividade e performance.
+        </p>
+        <div class="highlight-buttons">
+          <a href="https://pedrofoxlife.github.io/SiteAdtagSetorO/" class="highlight-btn">Acessear o Site</a>
+          <a href="#contact" class="highlight-btn">Curriculo</a>
+          <a href="index.html"  class="highlight-btn back-to-top">Voltar</a>
+
+        </div>
+      </div>
+      <img src="./assets/img/Gif_SITE.gif" alt="Imagem do Projeto Destaque">
+    </section>
+    
+    
+  
+  <script>
+  
+  
+// Função para obter a URL da miniatura
+function getThumbnailUrl(url) {
+  return `https://api.pexels.com/v1/thumbnails/?url=${encodeURIComponent(url)}`;
+}
+
+// Renderizar os projetos na página
+function renderProjects() {
+  const projectsContainer = document.querySelector('.projects-container');
+  if (!projectsContainer) return; // Evita o erro se o container não existir
+  projectsContainer.innerHTML = projects.map(project => `
+    <div class="project-card">
+      <a href="${project.url}" target="_blank">
+        <img src="${getThumbnailUrl(project.url)}" class="project-image" alt="Miniatura do projeto">
+      </a>
+      <h3 class="project-title">${project.title}</h3>
+      <p class="project-description">${project.description}</p>
+      <a href="${project.url}" class="project-link">Ver Mais</a>
+    </div>
+  `).join('');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopButton = document.getElementById('backToTop');
+
+  if (backToTopButton) {
+    backToTopButton.addEventListener('click', (event) => {
+      event.preventDefault(); // Evita o comportamento padrão do link
+      document.querySelector('#home').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+});
+
+// Aguarda a renderização do DOM para garantir que os elementos existam
+document.addEventListener('DOMContentLoaded', renderProjects);
+
+  </script>
+  
+  <script src="https://unpkg.com/@pexels/thumbnails"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
